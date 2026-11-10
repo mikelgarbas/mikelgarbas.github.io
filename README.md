@@ -1,6 +1,6 @@
-# Garbas
+# GarBas
 
-Web de Garbas: webs para negocios locales en Bilbao.
+Web de GarBas: webs para negocios locales en Bilbao.
 
 ## Marca
 - `marca/garbas-logo.svg`: logo para fondos claros
