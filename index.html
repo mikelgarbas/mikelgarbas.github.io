@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Garbas · Webs para negocios de Bilbao</title>
+<meta name="description" content="Diseño, publico y mantengo la web de tu negocio en Bilbao. Lista en 7 días, precio cerrado y sin permanencia.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Garbas · Webs para negocios de Bilbao">
+<meta property="og:description" content="Tu negocio, abierto también en Google. Webs listas en 7 días con precio cerrado.">
+<meta property="og:image" content="marca/garbas-perfil-redes.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: banda oscura de cabecera tipo rótulo, después secciones claras con rejilla de 12 columnas */
+:root{
+  --ink:#17181C; --paper:#F6F6F3; --amber:#FFB71B; --amber-deep:#C98600;
+  --muted:#5D616B; --line:#DCDDD6; --card:#FFFFFF;
+  --display:"Bricolage Grotesque", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --wrap:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,4.2vw,3rem);font-weight:800}
+h3{font-size:1.25rem;font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.9em 1.4em;border-radius:12px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font:600 1rem var(--body);transition:transform .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.btn-amber{background:var(--amber);color:var(--ink)}
+.btn-ghost{border-color:currentColor;color:inherit;background:transparent}
+
+/* Cabecera */
+.top{background:var(--ink);color:var(--paper)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+nav .logo img{height:36px;width:auto;display:block}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-weight:500}
+nav ul a{text-decoration:none;opacity:.8}
+nav ul a:hover{opacity:1}
+@media (max-width:760px){nav ul{display:none}}
+
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-block:56px 88px}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.9rem);font-weight:800}
+.hero h1 mark{background:var(--amber);color:var(--ink);padding:0 .12em;border-radius:.12em}
+.hero .lead{font-size:1.2rem;color:#C9CBD1;max-width:34em;margin-top:24px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:32px;font-size:.92rem;color:#AEB1B9}
+.hero .facts span::before{content:"✓ ";color:var(--amber);font-weight:700}
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding-block:32px 64px}}
+
+/* Maqueta de móvil */
+.phone{justify-self:center;width:min(300px,100%);aspect-ratio:9/18.5;background:#0B0B0D;border-radius:42px;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.45);position:relative;transform:rotate(3deg)}
+.screen{background:#FFF8EE;color:#2A2118;height:100%;border-radius:32px;overflow:hidden;display:flex;flex-direction:column;font-size:12px}
+.screen .bar{display:flex;justify-content:space-between;padding:14px 18px 8px;font-weight:600;font-size:11px}
+.screen .photo{margin:6px 12px;border-radius:18px;flex:0 0 38%;background:
+  radial-gradient(circle at 30% 35%,#F2C48D 0 18%,transparent 19%),
+  radial-gradient(circle at 70% 60%,#D98E5B 0 22%,transparent 23%),
+  linear-gradient(135deg,#7A4B2E,#C4825A);position:relative}
+.screen .photo b{position:absolute;left:12px;bottom:10px;color:#fff;font:800 20px/1 var(--display);text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.screen .info{padding:10px 16px;display:grid;gap:6px}
+.screen .info small{color:#8A7563}
+.screen .row{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:6px 12px}
+.screen .pill{border-radius:12px;padding:10px;text-align:center;font-weight:700}
+.screen .call{background:#2A2118;color:#FFF8EE}
+.screen .wa{background:#25D366;color:#073B1C}
+.screen .hours{margin:6px 12px;background:#fff;border-radius:12px;padding:10px 12px;display:grid;gap:4px}
+.screen .hours div{display:flex;justify-content:space-between}
+.tag-demo{position:absolute;top:-12px;left:-14px;background:var(--amber);color:var(--ink);font-weight:700;font-size:.75rem;padding:6px 10px;border-radius:8px;transform:rotate(-6deg)}
+
+section{padding-block:96px}
+@media (max-width:760px){section{padding-block:64px}}
+.sec-head{display:grid;gap:16px;max-width:44rem;margin-bottom:48px}
+.sec-head p{color:var(--muted);font-size:1.1rem}
+
+/* Problema */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.stat{border-top:3px solid var(--ink);padding-top:20px;display:grid;gap:8px}
+.stat strong{font:800 2.6rem/1 var(--display)}
+.stat p{color:var(--muted)}
+@media (max-width:760px){.stat-row{grid-template-columns:1fr}}
+
+/* Qué incluye */
+.incl{background:var(--card);border-block:1px solid var(--line)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 32px}
+.item{display:grid;gap:10px;align-content:start}
+.item .ic{width:44px;height:44px;border-radius:12px;background:var(--ink);display:grid;place-items:center}
+.item .ic svg{width:22px;height:22px;stroke:var(--amber);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.item p{color:var(--muted)}
+@media (max-width:860px){.grid-3{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.grid-3{grid-template-columns:1fr}}
+
+/* Proceso */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s;list-style:none;margin:0;padding:0}
+.steps li{counter-increment:s;display:grid;gap:10px;align-content:start;padding:24px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.steps li::before{content:counter(s);font:800 1rem/1 var(--display);width:36px;height:36px;border-radius:50%;background:var(--amber);display:grid;place-items:center}
+.steps li p{color:var(--muted);font-size:.95rem}
+.steps li.free{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.steps li.free p{color:#C9CBD1}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* Precios */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:20px}
+.plan.featured{background:var(--ink);color:var(--paper);border-color:var(--ink);position:relative}
+.plan.featured .badge{position:absolute;top:-13px;left:32px;background:var(--amber);color:var(--ink);font-size:.78rem;font-weight:700;padding:5px 10px;border-radius:999px}
+.plan .price{font:800 3rem/1 var(--display);font-variant-numeric:tabular-nums}
+.plan .price small{font:500 1rem var(--body);opacity:.7}
+.plan .for{color:var(--muted)}
+.plan.featured .for{color:#C9CBD1}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;flex:1}
+.plan li{padding-left:26px;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:8px;border-left:2.5px solid var(--amber-deep);border-bottom:2.5px solid var(--amber-deep);transform:rotate(-45deg)}
+.plan.featured li::before{border-color:var(--amber)}
+.plan .btn{justify-content:center}
+.price-note{margin-top:20px;color:var(--muted);font-size:.9rem}
+@media (max-width:900px){.prices{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{display:grid;gap:12px;max-width:52rem}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 22px}
+summary{cursor:pointer;font-weight:600;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font:700 1.4rem/1 var(--display)}
+details[open] summary::after{content:"–"}
+details p{padding-bottom:18px;color:var(--muted)}
+
+/* Contacto */
+.contact{background:var(--ink);color:var(--paper)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact .sec-head p{color:#C9CBD1}
+.mailbox{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:8px}
+.mailbox a{font:700 clamp(1.2rem,2.6vw,1.6rem) var(--display);color:var(--amber);word-break:break-all}
+form{display:grid;gap:14px;background:#22242A;padding:28px;border-radius:20px}
+label{display:grid;gap:6px;font-size:.9rem;font-weight:500;color:#C9CBD1}
+input,textarea,select{font:1rem var(--body);padding:12px 14px;border-radius:10px;border:1px solid #3A3D45;background:#17181C;color:var(--paper);width:100%}
+textarea{min-height:110px;resize:vertical}
+form .btn{justify-content:center}
+form small{color:#8E929B}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#8E929B;border-top:1px solid #2A2C33;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px}
+footer img{height:24px;width:auto;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <nav aria-label="Principal">
+      <a class="logo" href="#" aria-label="Garbas, inicio"><img src="marca/garbas-logo-blanco.svg" alt="garbas" width="144" height="36"></a>
+      <ul>
+        <li><a href="#incluye">Qué incluye</a></li>
+        <li><a href="#proceso">Cómo trabajo</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a class="btn btn-amber" href="#contacto">Pide tu propuesta</a>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <p class="eyebrow" style="color:#AEB1B9">Bilbao · Bizkaia</p>
+        <h1 style="margin-top:14px">Que te encuentren en Google <mark>antes</mark> que a la competencia.</h1>
+        <p class="lead">Hago la web de tu bar, peluquería, taller o clínica, la publico y la mantengo al día. Tú sigues con tu negocio; tus clientes te encuentran, te llaman y saben a qué hora abres.</p>
+        <div class="ctas">
+          <a class="btn btn-amber" href="#contacto">Quiero ver mi web gratis</a>
+          <a class="btn btn-ghost" href="#precios">Ver precios</a>
+        </div>
+        <div class="facts"><span>Lista en 7 días</span><span>Precio cerrado</span><span>Sin permanencia</span></div>
+      </div>
+
+      <div class="phone" aria-label="Ejemplo de web en un móvil">
+        <span class="tag-demo">Ejemplo</span>
+        <div class="screen">
+          <div class="bar"><span>9:41</span><span>●●●</span></div>
+          <div class="photo"><b>Ile Apaindegia</b></div>
+          <div class="info">
+            <strong style="font-size:15px">Peluquería en Deusto</strong>
+            <small>★ 4,8 · 126 reseñas en Google</small>
+          </div>
+          <div class="row"><span class="pill call">Llamar</span><span class="pill wa">WhatsApp</span></div>
+          <div class="hours">
+            <div><span>Lun – Vie</span><b>9:30 – 19:30</b></div>
+            <div><span>Sábado</span><b>9:00 – 14:00</b></div>
+          </div>
+          <div class="hours"><div><span>📍 Cómo llegar</span><b>Metro Deusto · 2 min</b></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Por qué importa</p>
+        <h2>Tus clientes te buscan en el móvil. Si no te encuentran, llaman a otro.</h2>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><strong>“cerca de mí”</strong><p>Es la forma en que la gente busca hoy una peluquería, un taller o un sitio para comer.</p></div>
+        <div class="stat"><strong>5 segundos</strong><p>Es lo que tarda alguien en decidir si se queda en tu web o se va. Teléfono, horario y ubicación tienen que verse al momento.</p></div>
+        <div class="stat"><strong>24 h</strong><p>Tu web atiende a clientes también cuando el local está cerrado: de noche, en festivos y en vacaciones.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="incl" id="incluye">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Qué incluye</p>
+        <h2>Todo lo que necesita tu negocio, sin tecnicismos.</h2>
+        <p>Me encargo de la parte técnica de principio a fin. Tú solo me cuentas cómo es tu negocio.</p>
+      </div>
+      <div class="grid-3">
+        <div class="item"><span class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span><h3>Pensada para el móvil</h3><p>Se ve perfecta en cualquier teléfono, que es desde donde te va a visitar casi todo el mundo.</p></div>
+        <div class="item"><span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><h3>Llamada y WhatsApp en un toque</h3><p>Botones grandes para que te llamen o te escriban sin tener que copiar ningún número.</p></div>
+        <div class="item"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><h3>Google Maps y Google Business</h3><p>Configuro tu ficha de Google para que aparezcas en el mapa cuando buscan en tu barrio.</p></div>
+        <div class="item"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span><h3>Posicionamiento local</h3><p>Textos preparados para que Google entienda qué haces y dónde: “taller en Santutxu”, “peluquería en Deusto”…</p></div>
+        <div class="item"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><h3>Dominio y alojamiento</h3><p>Tu propia dirección (tunegocio.es) y la web publicada. El dominio queda a tu nombre.</p></div>
+        <div class="item"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><h3>Cambios cuando los necesites</h3><p>¿Cambias el horario, la carta o los precios? Me mandas un WhatsApp y lo actualizo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Cómo trabajo</p>
+        <h2>De la primera llamada a tu web publicada en una semana.</h2>
+      </div>
+      <ol class="steps">
+        <li class="free"><h3>Te enseño una propuesta</h3><p>Preparo un primer diseño con el nombre de tu negocio. Gratis y sin compromiso: si no te gusta, no pagas nada.</p></li>
+        <li><h3>Me pasas tus datos</h3><p>Fotos, servicios, horarios y precios. Una conversación de 15 minutos es suficiente.</p></li>
+        <li><h3>La publico</h3><p>En 7 días tu web está en internet, con tu dominio y conectada a Google Maps.</p></li>
+        <li><h3>La mantengo</h3><p>Hosting, seguridad, copias y cambios. Tú no te preocupas de nada técnico.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="incl" id="precios">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Precios</p>
+        <h2>Precio cerrado. Sin sorpresas.</h2>
+        <p>Sabes lo que vas a pagar desde el primer día.</p>
+      </div>
+      <div class="prices">
+        <article class="plan">
+          <h3>Esencial</h3>
+          <div class="price">349 €<small> pago único</small></div>
+          <p class="for">Para estar en Google con todo lo básico.</p>
+          <ul>
+            <li>Web de una página adaptada al móvil</li>
+            <li>Botones de llamada y WhatsApp</li>
+            <li>Mapa, horario y servicios</li>
+            <li>Formulario de contacto</li>
+            <li>Lista en 7 días</li>
+          </ul>
+          <a class="btn btn-ghost" href="#contacto">Empezar</a>
+        </article>
+        <article class="plan featured">
+          <span class="badge">La más elegida</span>
+          <h3>Negocio</h3>
+          <div class="price">599 €<small> pago único</small></div>
+          <p class="for">Para atraer clientes nuevos cada semana.</p>
+          <ul>
+            <li>Todo lo de Esencial</li>
+            <li>Hasta 5 secciones (servicios, carta, galería…)</li>
+            <li>Ficha de Google Business optimizada</li>
+            <li>Textos pensados para tu barrio</li>
+            <li>Reservas o pedidos por WhatsApp</li>
+          </ul>
+          <a class="btn btn-amber" href="#contacto">Quiero esta</a>
+        </article>
+        <article class="plan">
+          <h3>Mantenimiento</h3>
+          <div class="price">19 €<small> / mes</small></div>
+          <p class="for">Para olvidarte de la parte técnica.</p>
+          <ul>
+            <li>Dominio y alojamiento incluidos</li>
+            <li>Cambios de textos, fotos y precios</li>
+            <li>Copias de seguridad y certificado SSL</li>
+            <li>Sin permanencia: lo dejas cuando quieras</li>
+          </ul>
+          <a class="btn btn-ghost" href="#contacto">Consultar</a>
+        </article>
+      </div>
+      <p class="price-note">Precios sin IVA. El primer año de mantenimiento se puede incluir en el pack Negocio por 149 €.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Lo que suelen preguntarme</h2>
+      </div>
+      <div class="faq">
+        <details><summary>No entiendo nada de informática. ¿Es un problema?</summary><p>Para nada. Yo me encargo de todo lo técnico. Tú me cuentas cómo es tu negocio, me pasas unas fotos y revisas el resultado.</p></details>
+        <details><summary>Ya tengo Instagram o Facebook. ¿Para qué quiero una web?</summary><p>Las redes están bien para el día a día, pero Google no las muestra igual que una web. Con web propia y ficha de Google Business apareces cuando alguien busca lo que haces en tu zona. Además, enlazo tus redes desde la web.</p></details>
+        <details><summary>¿La web y el dominio son míos?</summary><p>Sí. El dominio se registra a tu nombre y, si un día quieres irte, te entrego todo.</p></details>
+        <details><summary>¿Cuánto tarda?</summary><p>Unos 7 días desde que me pasas la información. Si te corre prisa, dímelo y lo vemos.</p></details>
+        <details><summary>¿Y si no me gusta la propuesta?</summary><p>La primera propuesta es gratis. Si no te convence, no pagas nada.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="wrap contact-grid">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow" style="color:#AEB1B9">Contacto</p>
+        <h2>Te preparo una propuesta gratis para tu negocio.</h2>
+        <p>Cuéntame cómo se llama tu negocio y dónde está. En 48 horas te enseño cómo quedaría tu web, sin compromiso.</p>
+        <div class="mailbox"><a id="mail-link" href="mailto:garbas@gmail.com">garbas@gmail.com</a></div>
+        <p style="font-size:.95rem">Trabajo en Bilbao y alrededores: Deusto, Santutxu, Indautxu, Rekalde, Basurto, Barakaldo, Getxo…</p>
+      </div>
+      <form id="contact-form">
+        <label for="f-name">Tu nombre<input id="f-name" name="nombre" required autocomplete="name"></label>
+        <label for="f-biz">Nombre del negocio<input id="f-biz" name="negocio" required></label>
+        <label for="f-type">Tipo de negocio
+          <select id="f-type" name="tipo">
+            <option>Bar o restaurante</option><option>Peluquería o estética</option><option>Taller</option>
+            <option>Clínica o fisioterapia</option><option>Tienda</option><option>Reformas u oficios</option><option>Otro</option>
+          </select>
+        </label>
+        <label for="f-phone">Teléfono<input id="f-phone" name="telefono" type="tel" autocomplete="tel"></label>
+        <label for="f-msg">¿Algo más que deba saber?<textarea id="f-msg" name="mensaje" placeholder="Por ejemplo: ya tengo Instagram, quiero que se pueda reservar…"></textarea></label>
+        <button class="btn btn-amber" type="submit">Pedir mi propuesta gratis</button>
+        <small>Se abrirá tu correo con el mensaje ya escrito para que solo tengas que enviarlo.</small>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><img src="marca/garbas-logo-blanco.svg" alt="garbas" width="96" height="24"></span>
+    <span>© 2026 Garbas · Webs para negocios locales · Bilbao</span>
+  </div>
+</footer>
+
+<script>
+  // Cambia aquí el correo si usas otro: se actualiza en toda la página.
+  const EMAIL = "garbas@gmail.com";
+  const link = document.getElementById("mail-link");
+  link.href = "mailto:" + EMAIL; link.textContent = EMAIL;
+  document.getElementById("contact-form").addEventListener("submit", e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const body = `Hola, me interesa una web para mi negocio.\n\nNombre: ${f.get("nombre")}\nNegocio: ${f.get("negocio")}\nTipo: ${f.get("tipo")}\nTeléfono: ${f.get("telefono")}\n\n${f.get("mensaje")}`;
+    location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Propuesta web para " + f.get("negocio"))}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>
